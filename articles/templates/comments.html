@@ -1,0 +1,16 @@
+{% block articles %}
+<h2>Comments</h2>
+{% if csuccess %}
+{% for comment in comments %}
+    <div><span>Comment: </span><br/>{{comment.comment|safe}}</div>
+    <div style="padding-left: 30px;">
+        <span>Posted By: </span>{{comment.postedBy}}<br/>
+        <span>Date Posted: </span>{{comment.postedDate}}<br/>
+        <span>Points: </span>{{comment.points}}<br/>
+    </div>
+    <br/>
+{% endfor %}
+{% else %}
+<div>Error getting response from server: {{comments.status}}, {{comments.reason}}
+{% endif %}
+{% endblock %}

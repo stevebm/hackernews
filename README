@@ -1,0 +1,6 @@
+This site was made as a simple way to try uusing django
+The database integration has been disabled for this demo although the models are still used in the same manner that they would be if there was a database.
+At the moment, everytime someone visits index the server will do requests to api.hackernews.com
+    - one to get the latest articles
+    - one to get the latest comments
+An improvement would be to cache these replies and setup a scheduled taks to poll hackernews periodically and store the results in a database. This woudl geratly improve the page laod speed and scalability of the site.

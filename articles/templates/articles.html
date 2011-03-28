@@ -1,0 +1,16 @@
+{% block articles %}
+<h2>Articles</h2>
+{% if asuccess %}
+{% for article in articles %}
+    <div><span>Title: </span><a href="{{article.url}}">{{article.title}}</a></div>
+    <div style="padding-left: 30px;">
+        <span>Posted By: </span>{{article.postedBy}}<br/>
+        <span>Date Posted: </span>{{article.postedDate}}<br/>
+        <span>Points: </span>{{article.points}}<br/>
+    </div>
+    <br/>
+{% endfor %}
+{% else %}
+<div>Error getting response from server: {{articles.status}}, {{articles.reason}}
+{% endif %}
+{% endblock %}
