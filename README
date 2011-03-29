@@ -14,3 +14,8 @@ An improvement would be to cache these replies and setup a scheduled taks to pol
 This would geratly improve the page laod speed and scalability of the site.
 Another improvement would be to match the comment trees to the correct articles. 
 This would require caching for it to be effective otherwise there would be too many calls to the hackernews api for the index page to load in a reasonable amount of time
+
+For the purposes of this example, the comments are not matched to the articles. This is what I understood from the requirements spec. 
+The reason I have not tried to match them is because the newest 5 comments might not be for the newest 5 articles, or a comment might be a child of another comment thread
+In order to do this effectively you would need to cache the articles and comments and essentially build a database that would match hackernews's in the end. 
+(Or do a query for each article to get its comments - but this would reult in a lot of queries and slow load times)
