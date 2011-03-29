@@ -3,6 +3,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Hacker News Articles</title>
+    <script type="text/javascript" src="/scripts/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript">
+        function init_ajax() {
+            $('a.ajax').click(function(){
+                $.get($(this).attr('href'), function(data) {
+                    $('#articles').remove();
+                    $('#comments').before(data);
+                    // reload the event handler for the new block
+                    init_ajax();
+                });
+                return false;
+            });
+        }
+        $(document).ready(function(){
+            init_ajax();
+        });
+    </script>
 </head>
 <h1> INDEX </h1>
 <div>

@@ -1,16 +1,22 @@
 {% block articles %}
-<h2>Comments</h2>
-{% if csuccess %}
-{% for comment in comments %}
-    <div><span>Comment: </span><br/>{{comment.comment|safe}}</div>
-    <div style="padding-left: 30px;">
-        <span>Posted By: </span>{{comment.postedBy}}<br/>
-        <span>Date Posted: </span>{{comment.postedDate}}<br/>
-        <span>Points: </span>{{comment.points}}<br/>
+    <div id="comments">
+        <h2>Comments</h2>
+        {% if csuccess %}
+            {% for comment in comments %}
+                <div><span><b>Comment: </b></span><br/>{{comment.comment|safe}}</div>
+                <div style="padding-left: 30px;">
+                    <span>Posted By: </span>{{comment.postedBy}}<br/>
+                    <span>Date Posted: </span>{{comment.postedDate}}<br/>
+                    <span>Points: </span>{{comment.points}}<br/>
+                </div>
+                <br/>
+            {% endfor %}
+        {% else %}
+            <div>
+                Error getting response from server: {{comments.status}}, {{comments.reason}}
+                <br/>
+                (This error came from hackernews - try reloading the page)
+            </div>
+        {% endif %}
     </div>
-    <br/>
-{% endfor %}
-{% else %}
-<div>Error getting response from server: {{comments.status}}, {{comments.reason}}
-{% endif %}
 {% endblock %}
