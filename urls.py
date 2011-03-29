@@ -1,11 +1,10 @@
 from django.conf.urls.defaults import *
+from django.views.static import *
+from django.conf import settings
 
 urlpatterns = patterns('',
-    (r'^(?P<article_id>\d+)/$', 'articles.views.detail'),
-    ('', 'articles.views.index'),
-    # Example:
-    # (r'^hackernews/', include('hackernews.foo.urls')),
-
-    # Uncomment this for admin:
-#     (r'^admin/', include('django.contrib.admin.urls')),
+    ('^$', 'articles.views.index'),
+    (r'^new_articles/$', 'articles.views.new_articles'),
+    (r'^page_articles/$', 'articles.views.page_articles'),
+    (r'^scripts/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
