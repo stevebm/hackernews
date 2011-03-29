@@ -24,6 +24,7 @@ def get_data(data_type='article', category='new'):
         # get the list of either comments or articles based on data_type
         if data_type == 'article':
             if category == 'new':
+                # only need the first 5 articles - will improve the sort time later (this list is already sorted)
                 data_dict['items'] = data_dict['items'][:5]
             data_list = [Article(**i) for i in data_dict['items']]
         else:
@@ -40,7 +41,6 @@ def get_data(data_type='article', category='new'):
 
 def index(request):
     new_articles = get_data()
-    #front_page_articles = get_data(category='page')
     comments = get_data(data_type='comments')
     return render_to_response('index.html', {
         'asuccess':new_articles[0],

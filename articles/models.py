@@ -1,7 +1,10 @@
+# The models are not really necessary for this app since we could just use the dictionaries returned by the json call - I added to this to show how the database models would be used
+
 from django.db import models
 import datetime
 
 class HackerNews(models.Model):
+    ''' Base class for hackernews articles and comments '''
     postedBy = models.CharField(max_length=255)
     postedAgo = models.CharField(max_length=100)
     postedDate = models.DateTimeField()
@@ -10,6 +13,7 @@ class HackerNews(models.Model):
 
     def __init__(self, *args, **kwargs):
         super(HackerNews, self).__init__(*args, **kwargs)
+        # Make an approximation of the posted date from the 'postedAgo' field (for easy sorting)
         datekwargs = self.postedAgo.split(' ')
         if datekwargs[1][-1] != 's':
             datekwargs[1] += 's'
