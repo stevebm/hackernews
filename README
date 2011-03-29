@@ -10,5 +10,7 @@ Admin:
 The Admin section is also disabled since there is no database
 
 Possible improvements:
-An improvement would be to cache these replies and setup a scheduled taks to poll hackernews periodically and store the results in a database. This woudl geratly improve the page laod speed and scalability of the site.
-Another improvement would be to match the comment trees to the correct articles. This would require caching for it to be effective otherwise there would be too many calls to the hackernews api for the index page to load in a reasonable amount of time
+An improvement would be to cache these replies and setup a scheduled taks to poll hackernews periodically and store the results in a database. 
+This would geratly improve the page laod speed and scalability of the site.
+Another improvement would be to match the comment trees to the correct articles. 
+This would require caching for it to be effective otherwise there would be too many calls to the hackernews api for the index page to load in a reasonable amount of time
