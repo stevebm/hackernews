@@ -48,5 +48,10 @@ def index(request):
         'csuccess':comments[0],
         'comments':comments[1]})
 
-def detail(request, article_id):
-    return HttpResponse("You're looking at article %s." % article_id)
+def new_articles(request):
+    new_articles = get_data()
+    return render_to_response('articles.html', {'asuccess':new_articles[0],'articles':new_articles[1]})
+
+def page_articles(request):
+    new_articles = get_data(category='page')
+    return render_to_response('articles.html', {'asuccess':new_articles[0],'articles':new_articles[1]})
